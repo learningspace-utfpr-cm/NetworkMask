@@ -1,4 +1,4 @@
-# 🌐 Network-Simulator
+# 🌐 Network-Mask-Simulator
 
 ![Badge de Status do Projeto](https://img.shields.io/badge/Status-EM_DESENVOLVIMENTO-yellow)
 
