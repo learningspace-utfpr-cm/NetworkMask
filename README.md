@@ -11,6 +11,16 @@ Ele foi estruturado priorizando a clareza dos conceitos (Classfull vs. Classless
 
 O objetivo é transformar o procedimento complexo do cálculo de sub-redes em uma experiência de aprendizado dinâmica e intuitiva.
 
+## Público alvo
+
+Este objeto de aprendizagem tem como público alvo alunos nos primeiros períodos de cursos relacionados à tecnologia da informação.
+
+## Mapa conceitual e Modelo instrucional
+[Mapa conceitual](https://cmapscloud.ihmc.us:443/rid=21XLKBF95-200BC55-B7NJ0B/M%C3%A1scara%20de%20rede.cmap)
+
+### Modelo instrucional
+![Modelo instrucional](/Model/IAM-CID.png "Modelo instrucional")
+
 ## ✨ Funcionalidades Principais
 
 O projeto é dividido em três módulos principais, alinhados ao fluxo de aprendizado:
