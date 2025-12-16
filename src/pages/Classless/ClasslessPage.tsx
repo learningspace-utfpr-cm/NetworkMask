@@ -1,7 +1,7 @@
 import React from 'react';
-import '../styles/pages.css';
-import NextButton from '../components/NextButton';
-import maskImg from '../assets/mask.webp';
+import '../../styles/pages.css';
+import NextButton from '../../components/NextButton';
+import maskImg from '../../assets/mask.webp';
 
 const ClasslessPage: React.FC = () => {
   return (
@@ -58,20 +58,8 @@ const ClasslessPage: React.FC = () => {
       </p>
 
       <div className="page-nav-sides" style={{ marginTop: 18 }}>
-        <NextButton
-          to="/concepts/classful"
-          direction="left"
-          label="Classful"
-          variant="secondary"
-          ariaLabel="Ir para Classful"
-        />
-        <NextButton
-          to="/concepts/mask-calc"
-          direction="right"
-          label="Cálculo de Máscara"
-          variant="primary"
-          ariaLabel="Ir para Cálculo de Máscara"
-        />
+        <NextButton to="/quiz/classful" direction="left" label="Anterior: Quiz Classful" variant="secondary" ariaLabel="Voltar para Quiz de Classful" />
+        <NextButton to="/quiz/classless" label="Quiz: Classless" variant="primary" ariaLabel="Ir para Quiz de Classless" />
       </div>
     </div>
   );

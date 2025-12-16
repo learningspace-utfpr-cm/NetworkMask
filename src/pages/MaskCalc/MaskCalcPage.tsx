@@ -1,7 +1,7 @@
 import React from 'react';
-import '../styles/pages.css';
-import NextButton from '../components/NextButton';
-import calcImg from '../assets/Calc.png';
+import '../../styles/pages.css';
+import NextButton from '../../components/NextButton';
+import calcImg from '../../assets/Calc.png';
 
 const MaskCalculationPage: React.FC = () => {
   return (
@@ -48,20 +48,8 @@ const MaskCalculationPage: React.FC = () => {
       </ul>
 
       <div className="page-nav-sides" style={{ marginTop: 18 }}>
-        <NextButton
-          to="/concepts/classless"
-          direction="left"
-          label="Classless e Máscara de rede"
-          variant="secondary"
-          ariaLabel="Voltar para Classless"
-        />
-        <NextButton
-          to="/simulator"
-          direction="right"
-          label="Simulador"
-          variant="primary"
-          ariaLabel="Ir para Simulador"
-        />
+        <NextButton to="/quiz/classless" direction="left" label="Anterior: Quiz Classless" variant="secondary" ariaLabel="Voltar para Quiz de Classless" />
+        <NextButton to="/quiz/mask-calc" label="Quiz: Calculo de máscara" variant="primary" ariaLabel="Ir para Quiz de Calculo de máscara" />
       </div>
     </div>
   );

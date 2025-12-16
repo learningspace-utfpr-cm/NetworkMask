@@ -17,13 +17,6 @@ const SimulatorPage = () => {
           variant="secondary"
           ariaLabel="Voltar para Cálculo de Máscara"
         />
-        <NextButton
-          to="/quiz"
-          direction="right"
-          label="Quiz"
-          variant="primary"
-          ariaLabel="Ir para Quiz"
-        />
       </div>
     </div>
   );

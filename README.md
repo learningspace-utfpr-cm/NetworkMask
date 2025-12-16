@@ -20,7 +20,7 @@ Este objeto de aprendizagem tem como público alvo alunos nos primeiros período
 🔗 [Mapa conceitual atualizado](https://cmapscloud.ihmc.us/viewer/cmap/225NWQCDS-11WBBSJ-RG8MH4)
 
 ### Modelo instrucional
-![Modelo instrucional](/Model/IAM-CID.png "Modelo instrucional")
+![Modelo instrucional](/Model/ModeloInstrucionał.png "Modelo instrucional")
 
 
 ### Plano de aula

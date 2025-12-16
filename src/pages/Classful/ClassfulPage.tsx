@@ -1,7 +1,7 @@
 import React from 'react';
-import '../styles/pages.css';
-import NextButton from '../components/NextButton';
-import classfulImg from '../assets/classful.webp';
+import '../../styles/pages.css';
+import NextButton from '../../components/NextButton';
+import classfulImg from '../../assets/classful.webp';
 
 const ClassfulPage: React.FC = () => {
   return (
@@ -41,20 +41,8 @@ const ClassfulPage: React.FC = () => {
       </p>
 
       <div className="page-nav-sides" style={{ marginTop: 18 }}>
-        <NextButton
-          to="/concepts/addressing"
-          direction="left"
-          label="Endereçamento IP"
-          variant="secondary"
-          ariaLabel="Ir para Endereçamento IP"
-        />
-        <NextButton
-          to="/concepts/classless"
-          direction="right"
-          label="Classless e Máscara de rede"
-          variant="primary"
-          ariaLabel="Ir para Classless"
-        />
+        <NextButton to="/quiz/ipv4" direction="left" label="Anterior: Quiz IPv4" variant="secondary" ariaLabel="Voltar para Quiz de IPv4" />
+        <NextButton to="/quiz/classful" label="Quiz: Classful" variant="primary" ariaLabel="Ir para Quiz de Classful" />
       </div>
     </div>
   );

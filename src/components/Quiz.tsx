@@ -1,103 +1,125 @@
 import React, { useState } from 'react';
-import quizData from '../data/quizzes';
+import { QuizData } from '../data/quizzes';
+import '../styles/pages.css';
 
-const Quiz: React.FC = () => {
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [userAnswers, setUserAnswers] = useState<number[]>([]);
-  const [isQuizFinished, setIsQuizFinished] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<number | null>(null);
+interface QuizProps {
+  quizData: QuizData;
+}
 
-  const handleOptionClick = (answerIndex: number) => {
-    if (selectedOption !== null) return;
-    setSelectedOption(answerIndex);
+const Quiz: React.FC<QuizProps> = ({ quizData }) => {
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
+  const [showResult, setShowResult] = useState(false);
+  const [score, setScore] = useState(0);
+  const [answeredQuestions, setAnsweredQuestions] = useState<boolean[]>(
+    new Array(quizData.questions.length).fill(false)
+  );
 
-    setTimeout(() => {
-      setUserAnswers(prev => [...prev, answerIndex]);
-      setSelectedOption(null);
+  const handleAnswerClick = (answerIndex: number) => {
+    if (answeredQuestions[currentQuestion]) return;
 
-      if (currentQuestionIndex < quizData.length - 1) {
-        setCurrentQuestionIndex(prev => prev + 1);
-      } else {
-        setIsQuizFinished(true);
-      }
-    }, 320);
+    setSelectedAnswer(answerIndex);
+    const isCorrect = answerIndex === quizData.questions[currentQuestion].correctAnswer;
+    
+    if (isCorrect) {
+      setScore(score + 1);
+    }
+
+    const newAnswered = [...answeredQuestions];
+    newAnswered[currentQuestion] = true;
+    setAnsweredQuestions(newAnswered);
   };
 
-  const renderQuestion = () => {
-    const question = quizData[currentQuestionIndex];
-    if (!question) return <div>Pergunta não encontrada.</div>;
+  const handleNextQuestion = () => {
+    if (currentQuestion < quizData.questions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+      setSelectedAnswer(null);
+    } else {
+      setShowResult(true);
+    }
+  };
 
+  const handleRestart = () => {
+    setCurrentQuestion(0);
+    setSelectedAnswer(null);
+    setShowResult(false);
+    setScore(0);
+    setAnsweredQuestions(new Array(quizData.questions.length).fill(false));
+  };
+
+  if (showResult) {
     return (
       <div className="quiz-container">
-        <div className="quiz-question">
-          <h2>{currentQuestionIndex + 1}. {question.question}</h2>
-        </div>
-
-        <ul className="quiz-options" role="list">
-          {question.options.map((option, index) => {
-            const isSelected = selectedOption === index;
-            return (
-              <li key={index} className="quiz-option">
-                <button
-                  type="button"
-                  className={`quiz-option-button ${isSelected ? 'selected' : ''}`}
-                  onClick={() => handleOptionClick(index)}
-                  disabled={selectedOption !== null}
-                  aria-pressed={isSelected}
-                >
-                  {option}
-                </button>
-              </li>
-            );
-          })}
-        </ul>
+        <h2>Resultado Final</h2>
+        <p className="quiz-score">
+          Você acertou {score} de {quizData.questions.length} questões
+        </p>
+        <p className="quiz-percentage">
+          Aproveitamento: {Math.round((score / quizData.questions.length) * 100)}%
+        </p>
+        <button onClick={handleRestart} className="quiz-button">
+          Refazer Quiz
+        </button>
       </div>
     );
-  };
+  }
 
-  const renderResults = () => {
-    const correctCount = userAnswers.reduce((acc, answerIndex, idx) => {
-      const q = quizData[idx];
-      const correctIndex = q.options.indexOf(q.answer);
-      if (answerIndex === correctIndex) return acc + 1;
-      return acc;
-    }, 0);
-
-    return (
-      <div className="quiz-results">
-        <h2>Resultados</h2>
-        <p>Você acertou {correctCount} de {quizData.length} perguntas.</p>
-
-        <div style={{ marginTop: 12 }}>
-          {quizData.map((q, qi) => {
-            const userAnswerIndex = userAnswers[qi];
-            const answered = typeof userAnswerIndex === 'number';
-            const correctIndex = q.options.indexOf(q.answer);
-            const userAnswerText = answered ? q.options[userAnswerIndex] : '— Não respondida —';
-            const correctAnswerText = q.options[correctIndex];
-            const isCorrect = answered && userAnswerIndex === correctIndex;
-
-            const explanation = (answered && q.explanations && q.explanations[userAnswerIndex])
-              ? q.explanations[userAnswerIndex]
-              : (q.explanations && q.explanations[correctIndex]) || '';
-
-            return (
-              <div key={qi} className="quiz-review-item">
-                <h3>{qi + 1}. {q.question}</h3>
-                <p><strong>Sua resposta:</strong> {userAnswerText} {isCorrect ? '✅' : (answered ? '❌' : '')}</p>
-                {!isCorrect && answered && <p><strong>Resposta correta:</strong> {correctAnswerText}</p>}
-                {explanation && <p><em>Explicação:</em> {explanation}</p>}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    );
-  };
+  const question = quizData.questions[currentQuestion];
+  const isAnswered = answeredQuestions[currentQuestion];
 
   return (
-    <div>
-      {isQuizFinished ? renderResults() : renderQuestion()}
+    <div className="quiz-container">
+      <h2>{quizData.title}</h2>
+      <div className="quiz-progress">
+        Questão {currentQuestion + 1} de {quizData.questions.length}
+      </div>
+      
+      <div className="quiz-question">
+        <h3>{question.question}</h3>
+        
+        <div className="quiz-options">
+          {question.options.map((option, index) => {
+            const isCorrectAnswer = index === question.correctAnswer;
+            const isSelected = index === selectedAnswer;
+            
+            let buttonClass = 'quiz-option';
+            let emoji = '';
+            
+            if (isAnswered) {
+              if (isCorrectAnswer) {
+                buttonClass += ' correct';
+                emoji = ' ✅';
+              } else if (isSelected) {
+                buttonClass += ' incorrect';
+                emoji = ' ❌';
+              }
+            }
+            
+            return (
+              <button
+                key={index}
+                onClick={() => handleAnswerClick(index)}
+                disabled={isAnswered}
+                className={buttonClass}
+              >
+                {option}{emoji}
+              </button>
+            );
+          })}
+        </div>
+
+        {isAnswered && question.explanation && (
+          <div className="quiz-explanation">
+            <strong>Explicação:</strong> {question.explanation}
+          </div>
+        )}
+
+        {isAnswered && (
+          <button onClick={handleNextQuestion} className="quiz-button quiz-next">
+            {currentQuestion < quizData.questions.length - 1 ? 'Próxima' : 'Ver Resultado'}
+          </button>
+        )}
+      </div>
     </div>
   );
 };

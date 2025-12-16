@@ -1,139 +1,167 @@
-const quizzes = [
-  {
-    question: "Quantos bits tem um endereço IPv4?",
-    options: ["16", "32", "64", "128"],
-    answer: "32",
-    explanations: [
-      "Incorreto — 16 bits é muito pouco para IPv4.",
-      "Correto — IPv4 usa endereços de 32 bits (4 bytes).",
-      "Incorreto — 64 bits refere-se a alguns sistemas mais modernos, não IPv4.",
-      "Incorreto — 128 bits é o tamanho do IPv6."
-    ]
-  },
-  {
-    question: "O que indica a notação CIDR 192.168.1.0/24?",
-    options: [
-      "Que 24 bits, a partir da esquerda, são parte da rede",
-      "Que existem 24 endereços na sub-rede",
-      "Que os últimos 24 bits são para hosts",
-      "Que a máscara é 255.0.0.0"
-    ],
-    answer: "Que 24 bits, a partir da esquerda, são parte da rede",
-    explanations: [
-      "Correto — o número após a barra indica quantos bits são de rede (NetID).",
-      "Incorreto — /24 não significa 24 endereços; significa 24 bits de rede.",
-      "Incorreto — /24 indica os primeiros 24 bits são de rede, não os últimos.",
-      "Incorreto — 255.0.0.0 corresponde a /8, não /24."
-    ]
-  },
-  {
-    question: "Qual é a máscara decimal correspondente a /24?",
-    options: ["255.255.255.0", "255.255.0.0", "255.0.0.0", "255.255.255.255"],
-    answer: "255.255.255.0",
-    explanations: [
-      "Correto — /24 corresponde a 24 uns seguidos por zeros → 255.255.255.0.",
-      "Incorreto — 255.255.0.0 é /16.",
-      "Incorreto — 255.0.0.0 é /8.",
-      "Incorreto — 255.255.255.255 é /32."
-    ]
-  },
-  {
-    question: "Qual é o propósito principal de uma máscara de sub-rede?",
-    options: [
-      "Separar quais bits do endereço são de rede e quais são de host",
-      "Criptografar tráfego na rede",
-      "Atribuir endereços automaticamente (DHCP)",
-      "Detectar dispositivos com malware"
-    ],
-    answer: "Separar quais bits do endereço são de rede e quais são de host",
-    explanations: [
-      "Correto — a máscara define NetID e HostID de um endereço IP.",
-      "Incorreto — criptografia não é função da máscara.",
-      "Incorreto — atribuição automática é função do DHCP.",
-      "Incorreto — detecção de malware não é função da máscara."
-    ]
-  },
-  {
-    question: "Quantos hosts utilizáveis existem em uma sub-rede /26 (excluindo rede e broadcast)?",
-    options: ["62", "64", "30", "32"],
-    answer: "62",
-    explanations: [
-      "Correto — /26 tem 2^(32−26)=64 endereços; hosts utilizáveis normalmente = 64 − 2 = 62.",
-      "Incorreto — 64 é o total de endereços, incluindo rede e broadcast.",
-      "Incorreto — 30 corresponde aproximadamente a /27, não /26.",
-      "Incorreto — 32 não corresponde a /26."
-    ]
-  },
-  {
-    question: "Qual é o endereço de broadcast para 192.168.1.0/24?",
-    options: ["192.168.1.255", "192.168.1.0", "192.168.1.1", "192.168.1.254"],
-    answer: "192.168.1.255",
-    explanations: [
-      "Correto — para /24 o último endereço (.255) é o broadcast.",
-      "Incorreto — .0 é o endereço de rede.",
-      "Incorreto — .1 é um host, não o broadcast.",
-      "Incorreto — .254 é o último host utilizável, não o broadcast."
-    ]
-  },
-  {
-    question: "Na notação decimal pontuada, quantos octetos existem e qual o intervalo de cada um?",
-    options: [
-      "4 octetos, 0–255",
-      "3 octetos, 0–255",
-      "4 octetos, 0–65535",
-      "2 octetos, 0–255"
-    ],
-    answer: "4 octetos, 0–255",
-    explanations: [
-      "Correto — IPv4 representa 32 bits como 4 octetos, cada um 0–255.",
-      "Incorreto — IPv4 usa 4 octetos, não 3.",
-      "Incorreto — cada octeto vai até 255, não 65535.",
-      "Incorreto — IPv4 usa 4 octetos, não 2."
-    ]
-  },
-  {
-    question: "Por que o modelo classful foi substituído por classless (CIDR)?",
-    options: [
-      "Porque classful desperdiçava endereços e não permitia prefixos flexíveis",
-      "Porque classful não suportava roteadores",
-      "Porque classful exigia criptografia",
-      "Porque classful só funcionava com IPv6"
-    ],
-    answer: "Porque classful desperdiçava endereços e não permitia prefixos flexíveis",
-    explanations: [
-      "Correto — classes fixas geravam desperdício; CIDR permite prefixos arbitrários e alocação eficiente.",
-      "Incorreto — roteadores suportavam classful, o problema era eficiência de alocação.",
-      "Incorreto — criptografia não é o motivo da mudança.",
-      "Incorreto — classful é um conceito de IPv4, não relacionado ao IPv6."
-    ]
-  },
-  {
-    question: "Ao planejar sub-redes, qual informação a máscara ajuda a determinar diretamente?",
-    options: [
-      "O tamanho do bloco de endereços (quantos endereços e quantos hosts)",
-      "A velocidade do link físico",
-      "O fabricante do roteador",
-      "A topologia física do cabeamento"
-    ],
-    answer: "O tamanho do bloco de endereços (quantos endereços e quantos hosts)",
-    explanations: [
-      "Correto — a máscara determina quantos bits são de host e assim o número de endereços do bloco.",
-      "Incorreto — velocidade do link não é determinada pela máscara.",
-      "Incorreto — máscara não identifica fabricante do roteador.",
-      "Incorreto — máscara não descreve a topologia física do cabeamento."
-    ]
-  },
-  {
-    question: "Qual das seguintes notações CIDR é inválida?",
-    options: ["192.168.1.0/24", "192.168.1.0/32", "192.168.1.0/33", "10.0.0.0/8"],
-    answer: "192.168.1.0/33",
-    explanations: [
-      "Incorreto — /24 é válido.",
-      "Incorreto — /32 é válido (representa um único endereço).",
-      "Correto — /33 é inválido em IPv4; o máximo é /32.",
-      "Incorreto — /8 é válido (máscara de Classe A tradicional)."
-    ]
-  },
-];
+export interface QuizQuestion {
+  id: number;
+  question: string;
+  options: string[];
+  correctAnswer: number;
+  explanation?: string;
+}
 
-export default quizzes;
+export interface QuizData {
+  title: string;
+  questions: QuizQuestion[];
+}
+
+export const addressingQuiz: QuizData = {
+  title: "Quiz - Endereçamento IP",
+  questions: [
+    {
+      id: 1,
+      question: "Qual é o tamanho em bits de um endereço IPv4?",
+      options: ["16 bits", "32 bits", "64 bits", "128 bits"],
+      correctAnswer: 1,
+      explanation: "IPv4 utiliza endereços de 32 bits (4 bytes)."
+    },
+    {
+      id: 2,
+      question: "Qual versão do IP resolve as limitações do IPv4?",
+      options: ["IPv3", "IPv5", "IPv6", "IPv7"],
+      correctAnswer: 2,
+      explanation: "IPv6 foi desenvolvido para resolver limitações do IPv4, usando endereços de 128 bits."
+    },
+    {
+      id: 3,
+      question: "Por que dividimos redes em sub-redes?",
+      options: [
+        "Para aumentar a velocidade da internet",
+        "Para organizar e otimizar o uso de endereços IP",
+        "Para reduzir o custo de hardware",
+        "Para melhorar a segurança física"
+      ],
+      correctAnswer: 1,
+      explanation: "Sub-redes ajudam a organizar e otimizar o uso de endereços IP."
+    }
+  ]
+};
+
+export const ipv4Quiz: QuizData = {
+  title: "Quiz - IPv4",
+  questions: [
+    {
+      id: 1,
+      question: "Qual é o formato da notação decimal pontuada do IPv4?",
+      options: ["xxx-xxx-xxx-xxx", "xxx.xxx.xxx.xxx", "xxx:xxx:xxx:xxx", "xxx/xxx/xxx/xxx"],
+      correctAnswer: 1,
+      explanation: "IPv4 usa notação decimal pontuada: xxx.xxx.xxx.xxx"
+    },
+    {
+      id: 2,
+      question: "Qual é o valor máximo de um octeto no IPv4?",
+      options: ["127", "255", "256", "512"],
+      correctAnswer: 1,
+      explanation: "Cada octeto tem 8 bits, permitindo valores de 0 a 255."
+    },
+    {
+      id: 3,
+      question: "Qual destes endereços IPv4 é válido?",
+      options: ["256.100.50.25", "192.168.1", "192.168.1.1", "abc.def.ghi.jkl"],
+      correctAnswer: 2,
+      explanation: "192.168.1.1 é válido. Os outros possuem octetos inválidos, faltam octetos ou não são numéricos."
+    }
+  ]
+};
+
+export const classfulQuiz: QuizData = {
+  title: "Quiz - Endereçamento Classful",
+  questions: [
+    {
+      id: 1,
+      question: "Quantas classes principais existem no endereçamento Classful?",
+      options: ["3", "5", "7", "10"],
+      correctAnswer: 0,
+      explanation: "As três classes principais são A, B e C. Classes D e E têm usos especiais."
+    },
+    {
+      id: 2,
+      question: "Qual classe de endereço IP inicia com bits '110'?",
+      options: ["Classe A", "Classe B", "Classe C", "Classe D"],
+      correctAnswer: 2,
+      explanation: "Classe C inicia com os bits 110."
+    },
+    {
+      id: 3,
+      question: "Qual é a máscara de rede padrão da Classe A?",
+      options: ["255.0.0.0", "255.255.0.0", "255.255.255.0", "255.255.255.255"],
+      correctAnswer: 0,
+      explanation: "Classe A usa máscara 255.0.0.0 (/8)."
+    }
+  ]
+};
+
+export const classlessQuiz: QuizData = {
+  title: "Quiz - Endereçamento Classless (CIDR)",
+  questions: [
+    {
+      id: 1,
+      question: "O que significa CIDR?",
+      options: [
+        "Class Internet Domain Routing",
+        "Classless Inter-Domain Routing",
+        "Combined IP Domain Resolution",
+        "Centralized Internet Data Registry"
+      ],
+      correctAnswer: 1,
+      explanation: "CIDR significa Classless Inter-Domain Routing."
+    },
+    {
+      id: 2,
+      question: "No CIDR, o que indica a notação /24?",
+      options: [
+        "24 hosts disponíveis",
+        "24 bits para a parte de rede",
+        "24 sub-redes",
+        "24 roteadores"
+      ],
+      correctAnswer: 1,
+      explanation: "/24 indica que os primeiros 24 bits são usados para identificar a rede."
+    },
+    {
+      id: 3,
+      question: "Qual é a vantagem principal do CIDR sobre o Classful?",
+      options: [
+        "Maior velocidade de conexão",
+        "Uso mais eficiente de endereços IP",
+        "Melhor segurança",
+        "Menor custo de equipamentos"
+      ],
+      correctAnswer: 1,
+      explanation: "CIDR permite uso mais eficiente de endereços IP ao não seguir classes fixas."
+    }
+  ]
+};
+
+export const maskCalcQuiz: QuizData = {
+  title: "Quiz - Cálculo de Máscara",
+  questions: [
+    {
+      id: 1,
+      question: "Quantos hosts válidos existem em uma rede /30?",
+      options: ["0", "2", "4", "6"],
+      correctAnswer: 1,
+      explanation: "Uma rede /30 tem 2^2 - 2 = 2 hosts válidos (excluindo network e broadcast)."
+    },
+    {
+      id: 2,
+      question: "Qual é a máscara decimal de uma rede /26?",
+      options: ["255.255.255.0", "255.255.255.128", "255.255.255.192", "255.255.255.224"],
+      correctAnswer: 2,
+      explanation: "/26 = 11111111.11111111.11111111.11000000 = 255.255.255.192"
+    },
+    {
+      id: 3,
+      question: "Para ter pelo menos 50 hosts, qual prefixo mínimo é necessário?",
+      options: ["/24", "/25", "/26", "/27"],
+      correctAnswer: 2,
+      explanation: "/26 fornece 2^6 - 2 = 62 hosts válidos, suficiente para 50 hosts."
+    }
+  ]
+};

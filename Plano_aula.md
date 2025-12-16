@@ -4,14 +4,14 @@ Público: Alunos iniciais de cursos de TI (redes, infraestrutura)
 
 ## Objetivos de aprendizagem
 
-- Compreender conceitos de endereçamento IP: Classful vs Classless (CIDR).
+- Compreender conceitos de endereçamento IPv4: Classful vs Classless (CIDR).
 - Calcular máscara de rede (decimal e binário), network ID, broadcast e número de hosts válidos.
-- Utilizar o Simulador de Sub-redes para explorar cenários práticos.
-- Avaliar conhecimentos com exercícios práticos e quiz.
 
 ## Pré-requisitos
 
 - Conhecimentos básicos de conversão binária.
+- Conhecimento de conceitos de modelos e separação de camadas de rede (Modelo TCP/IP, camada de rede).
+- Compreender conceitos de endereçamento IPv4.
 
 ## Materiais / Recursos
 
@@ -52,3 +52,8 @@ Público: Alunos iniciais de cursos de TI (redes, infraestrutura)
 
 - Para turmas com dificuldade em binário: aumentar tempo de prática com conversões binário/decimal.
 - Para turmas avançadas: propor desafios com VLSM (Variable Length Subnet Masking) e roteamento entre sub-redes.
+
+## Referências
+[IFRN - Redes](https://docentes.ifrn.edu.br/thiagodutra/disciplinas/materiais/infraestrutura-de-redes-de-computadores-tms/11CamadadeRede.pdf)
+
+TANENBAUM, A. S. – Redes de Computadores – 4º edição - Tradução: Vandenberg D. de Souza
