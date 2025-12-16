@@ -17,6 +17,8 @@ Este objeto de aprendizagem tem como público alvo alunos nos primeiros período
 ## 📖 Mapa conceitual e Modelo instrucional
 🔗 [Mapa conceitual](https://cmapscloud.ihmc.us:443/rid=21XLKBF95-200BC55-B7NJ0B/M%C3%A1scara%20de%20rede.cmap)
 
+🔗 [Mapa conceitual atualizado](https://cmapscloud.ihmc.us/viewer/cmap/225NWQCDS-11WBBSJ-RG8MH4)
+
 ### Modelo instrucional
 ![Modelo instrucional](/Model/IAM-CID.png "Modelo instrucional")
 
