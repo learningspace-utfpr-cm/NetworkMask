@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lom xmlns="http://ltsc.ieee.org/xsd/LOM" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ltsc.ieee.org/xsd/LOM http://ltsc.ieee.org/xsd/LOMv1.0/lom.xsd">
+  
+  <!-- General -->
+  <general>
+    <identifier>
+      <catalog>Network-Mask-Simulator</catalog>
+      <entry>v1.0</entry>
+    </identifier>
+    <title>
+      <langstring xml:lang="pt-BR">Network-Mask-Simulator: Simulador Interativo de Máscara de Rede</langstring>
+      <langstring xml:lang="en">Network-Mask-Simulator: Interactive Subnet Mask Simulator</langstring>
+    </title>
+    <language>pt-BR</language>
+    <language>en</language>
+    <description>
+      <langstring xml:lang="pt-BR">Objeto de aprendizagem educacional focado no ensino e prática do conceito de Máscara de Rede (Subnetting) em Redes de Computadores. Inclui módulo de conceitos (Classful vs. Classless), simulador interativo e avaliações.</langstring>
+      <langstring xml:lang="en">Educational learning object focused on teaching and practicing the concept of Network Mask (Subnetting) in Computer Networks. Includes concepts module (Classful vs. Classless), interactive simulator and assessments.</langstring>
+    </description>
+    <keyword>
+      <langstring xml:lang="pt-BR">Máscara de Rede</langstring>
+      <langstring xml:lang="en">Network Mask</langstring>
+    </keyword>
+    <keyword>
+      <langstring xml:lang="pt-BR">Subnetting</langstring>
+      <langstring xml:lang="en">Subnetting</langstring>
+    </keyword>
+    <keyword>
+      <langstring xml:lang="pt-BR">IPv4</langstring>
+    </keyword>
+    <keyword>
+      <langstring xml:lang="pt-BR">CIDR</langstring>
+      <langstring xml:lang="en">Classless Inter-Domain Routing</langstring>
+    </keyword>
+    <keyword>
+      <langstring xml:lang="pt-BR">Endereçamento IP</langstring>
+      <langstring xml:lang="en">IP Addressing</langstring>
+    </keyword>
+  </general>
+
+  <!-- Lifecycle -->
+  <lifecycle>
+    <version>1.0</version>
+    <status>draft</status>
+    <contribute>
+      <role>author</role>
+      <entity>Davi</entity>
+      <date>2025-12-16</date>
+    </contribute>
+  </lifecycle>
+
+  <!-- MetaMetadata -->
+  <metaMetadata>
+    <identifier>
+      <catalog>lom-metadata</catalog>
+      <entry>network-mask-simulator-lom</entry>
+    </identifier>
+    <contribute>
+      <role>creator</role>
+      <entity>Davi</entity>
+      <date>2025-12-16</date>
+    </contribute>
+    <metadataSchema>LOMv1.0</metadataSchema>
+    <language>pt-BR</language>
+  </metaMetadata>
+
+  <!-- Technical -->
+  <technical>
+    <format>text/html</format>
+    <format>application/javascript</format>
+    <size>0</size>
+    <location>https://github.com/davi/NetworkMask</location>
+    <requirement>
+      <type>browser</type>
+      <name>any</name>
+      <minimumVersion>latest</minimumVersion>
+    </requirement>
+    <requirement>
+      <type>operating system</type>
+      <name>Linux</name>
+      <minimumVersion>any</minimumVersion>
+    </requirement>
+    <requirement>
+      <type>operating system</type>
+      <name>Windows</name>
+      <minimumVersion>any</minimumVersion>
+    </requirement>
+    <requirement>
+      <type>operating system</type>
+      <name>macOS</name>
+      <minimumVersion>any</minimumVersion>
+    </requirement>
+  </technical>
+
+  <!-- Educational -->
+  <educational>
+    <interactivityType>active</interactivityType>
+    <learningResourceType>simulation</learningResourceType>
+    <learningResourceType>interactive lesson</learningResourceType>
+    <learningResourceType>questionnaire</learningResourceType>
+    <interactivityLevel>high</interactivityLevel>
+    <semanticDensity>medium</semanticDensity>
+    <intendedEndUserRole>learner</intendedEndUserRole>
+    <intendedEndUserRole>teacher</intendedEndUserRole>
+    <context>higher education</context>
+    <context>vocational training</context>
+    <typicalAgeRange>
+      <langstring xml:lang="pt-BR">18+</langstring>
+    </typicalAgeRange>
+    <difficulty>medium</difficulty>
+    <typicalLearningTime>PT90M</typicalLearningTime>
+  </educational>
+
+  <!-- Rights -->
+  <rights>
+    <cost>no</cost>
+    <copyrightAndOtherRestrictions>yes</copyrightAndOtherRestrictions>
+    <description>
+      <langstring xml:lang="pt-BR">Creative Commons Attribution-ShareAlike-NonCommercial 4.0 Internacional (CC BY-SA-NC 4.0)</langstring>
+      <langstring xml:lang="en">Creative Commons Attribution-ShareAlike-NonCommercial 4.0 International (CC BY-SA-NC 4.0)</langstring>
+    </description>
+  </rights>
+
+  <!-- Relation -->
+  <relation>
+    <kind>hasVersion</kind>
+    <resource>
+      <identifier>
+        <catalog>GitHub</catalog>
+        <entry>https://github.com/davi/NetworkMask</entry>
+      </identifier>
+      <description>
+        <langstring xml:lang="pt-BR">Repositório do projeto no GitHub</langstring>
+        <langstring xml:lang="en">Project repository on GitHub</langstring>
+      </description>
+    </resource>
+  </relation>
+
+  <!-- Classification -->
+  <classification>
+    <purpose>discipline</purpose>
+    <taxonPath>
+      <source>
+        <langstring xml:lang="en">ACM Computing Classification System</langstring>
+      </source>
+      <taxon>
+        <id>C.2.1</id>
+        <entry>
+          <langstring xml:lang="en">Network Architecture and Design</langstring>
+        </entry>
+      </taxon>
+    </taxonPath>
+  </classification>
+
+  <classification>
+    <purpose>educational level</purpose>
+    <taxonPath>
+      <source>
+        <langstring xml:lang="pt-BR">Níveis Educacionais</langstring>
+      </source>
+      <taxon>
+        <id>superior</id>
+        <entry>
+          <langstring xml:lang="pt-BR">Educação Superior</langstring>
+        </entry>
+      </taxon>
+    </taxonPath>
+  </classification>
+
+</lom>

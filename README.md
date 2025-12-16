@@ -70,3 +70,9 @@ Siga estas instruções para ter uma cópia do projeto rodando na sua máquina l
 ### Referências
 
 [IFRN - Redes](https://docentes.ifrn.edu.br/thiagodutra/disciplinas/materiais/infraestrutura-de-redes-de-computadores-tms/11CamadadeRede.pdf)
+
+## 📄 Licença
+
+Este projeto está licenciado sob a licença Creative Commons Attribution-ShareAlike-NonCommercial 4.0 Internacional (CC BY-SA-NC 4.0).
+
+Para mais informações, consulte o arquivo [LICENSE](./LICENSE) ou visite [Creative Commons](http://creativecommons.org/licenses/by-sa-nc/4.0/).

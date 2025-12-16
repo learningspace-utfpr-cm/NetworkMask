@@ -1,0 +1,169 @@
+{
+  "general": {
+    "identifier": {
+      "catalog": "Network-Mask-Simulator",
+      "entry": "v1.0"
+    },
+    "title": {
+      "pt-BR": "Network-Mask-Simulator: Simulador Interativo de Máscara de Rede",
+      "en": "Network-Mask-Simulator: Interactive Subnet Mask Simulator"
+    },
+    "language": ["pt-BR", "en"],
+    "description": {
+      "pt-BR": "Objeto de aprendizagem educacional focado no ensino e prática do conceito de Máscara de Rede (Subnetting) em Redes de Computadores. Inclui módulo de conceitos (Classful vs. Classless), simulador interativo e avaliações.",
+      "en": "Educational learning object focused on teaching and practicing the concept of Network Mask (Subnetting) in Computer Networks. Includes concepts module (Classful vs. Classless), interactive simulator and assessments."
+    },
+    "keywords": [
+      {
+        "pt-BR": "Máscara de Rede",
+        "en": "Network Mask"
+      },
+      {
+        "pt-BR": "Subnetting",
+        "en": "Subnetting"
+      },
+      {
+        "pt-BR": "IPv4",
+        "en": "IPv4"
+      },
+      {
+        "pt-BR": "CIDR",
+        "en": "Classless Inter-Domain Routing"
+      },
+      {
+        "pt-BR": "Endereçamento IP",
+        "en": "IP Addressing"
+      }
+    ]
+  },
+  "lifecycle": {
+    "version": "1.0",
+    "status": "draft",
+    "contributors": [
+      {
+        "role": "author",
+        "name": "Davi",
+        "date": "2025-12-16"
+      }
+    ]
+  },
+  "metaMetadata": {
+    "identifier": {
+      "catalog": "lom-metadata",
+      "entry": "network-mask-simulator-lom"
+    },
+    "creator": {
+      "name": "Davi",
+      "date": "2025-12-16"
+    },
+    "metadataSchema": "LOMv1.0",
+    "language": "pt-BR"
+  },
+  "technical": {
+    "format": ["text/html", "application/javascript"],
+    "location": "https://github.com/davi/NetworkMask",
+    "requirements": [
+      {
+        "type": "browser",
+        "name": "any",
+        "minimumVersion": "latest"
+      },
+      {
+        "type": "operating system",
+        "name": "Linux"
+      },
+      {
+        "type": "operating system",
+        "name": "Windows"
+      },
+      {
+        "type": "operating system",
+        "name": "macOS"
+      }
+    ]
+  },
+  "educational": {
+    "interactivityType": "active",
+    "learningResourceTypes": [
+      "simulation",
+      "interactive lesson",
+      "questionnaire"
+    ],
+    "interactivityLevel": "high",
+    "semanticDensity": "medium",
+    "intendedEndUserRoles": [
+      "learner",
+      "teacher"
+    ],
+    "contexts": [
+      "higher education",
+      "vocational training"
+    ],
+    "typicalAgeRange": {
+      "pt-BR": "18+",
+      "en": "18+"
+    },
+    "difficulty": "medium",
+    "typicalLearningTime": "PT90M"
+  },
+  "rights": {
+    "cost": "no",
+    "copyrightAndOtherRestrictions": "yes",
+    "license": {
+      "pt-BR": "Creative Commons Attribution-ShareAlike-NonCommercial 4.0 Internacional (CC BY-SA-NC 4.0)",
+      "en": "Creative Commons Attribution-ShareAlike-NonCommercial 4.0 International (CC BY-SA-NC 4.0)"
+    },
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa-nc/4.0/"
+  },
+  "relation": {
+    "kind": "hasVersion",
+    "resource": {
+      "identifier": {
+        "catalog": "GitHub",
+        "entry": "https://github.com/davi/NetworkMask"
+      },
+      "description": {
+        "pt-BR": "Repositório do projeto no GitHub",
+        "en": "Project repository on GitHub"
+      }
+    }
+  },
+  "classification": [
+    {
+      "purpose": "discipline",
+      "source": {
+        "en": "ACM Computing Classification System"
+      },
+      "taxon": {
+        "id": "C.2.1",
+        "entry": {
+          "en": "Network Architecture and Design"
+        }
+      }
+    },
+    {
+      "purpose": "educational level",
+      "source": {
+        "pt-BR": "Níveis Educacionais"
+      },
+      "taxon": {
+        "id": "superior",
+        "entry": {
+          "pt-BR": "Educação Superior"
+        }
+      }
+    }
+  ],
+  "additionalInfo": {
+    "projectName": "Network-Mask-Simulator",
+    "author": "Davi",
+    "creationDate": "2025-12-16",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Vite"
+    ],
+    "conceptualMap": "https://cmapscloud.ihmc.us/viewer/cmap/225NWQCDS-11WBBSJ-RG8MH4",
+    "teachingPlan": "/Plano_aula.md"
+  }
+}
